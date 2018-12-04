@@ -1,0 +1,35 @@
+body {
+  background-color: #F07260;
+  font-size: 64px;
+}
+
+#main {
+  height: 100vh;
+  width: 100%;
+  background-color: #1fd1f9;
+  background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+
+}
+
+
+.spinner:before {
+  animation: spinner 2.5s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  width: 4rem;
+  height: 4rem;
+  background-color: #fff;
+  position: fixed;
+  top: 45%;
+  left: 45%;
+  content: "";
+}
+
+
+@keyframes spinner {
+  50% {
+    border-radius: 50%;
+    transform: scale(0.5) rotate(360deg);
+  }
+  100% {
+    transform: scale(1) rotate(720deg);
+  }
+}
