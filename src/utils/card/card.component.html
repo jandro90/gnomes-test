@@ -1,6 +1,6 @@
 <mdb-card>
-  <div class="view rgba-white-slight waves-light card-height" mdbWavesEffect>
-    <mdb-card-img [src]="cardData.thumbnail" alt="Card image cap"></mdb-card-img>
+  <div class="view rgba-white-slight waves-light card-height">
+    <mdb-card-img [src]="data.thumbnail" alt="Card image cap"></mdb-card-img>
     <a>
       <div class="mask"></div>
     </a>
@@ -8,16 +8,16 @@
 
   <mdb-card-body class="card-body-height">
     <mdb-card-title>
-      <h4>{{cardData.name}}</h4>
+      <h4>{{data.name}}</h4>
     </mdb-card-title>
     <mdb-card-text>
-      <p> <strong>Height:</strong> {{cardData.height | number:'1.0-0'}} cm</p>
-      <p> <strong>Hair Color:</strong> {{cardData.hair_color }}</p>
-      <p> <strong>Age:</strong> {{cardData.age }}</p>
-      <p> <strong>Weight:</strong> {{cardData.weight | number:'1.0-0'}} kg</p>
-      <p *ngIf="cardData.friends.length > 0"> 
+      <p> <strong>Height:</strong> {{data.height | number:'1.0-0'}} cm</p>
+      <p> <strong>Hair Color:</strong> {{data.hair_color }}</p>
+      <p> <strong>Age:</strong> {{data.age }}</p>
+      <p> <strong>Weight:</strong> {{data.weight | number:'1.0-0'}} kg</p>
+      <p *ngIf="data.friends.length > 0"> 
         <strong>Friends:</strong>
-        <span *ngFor="let friend of cardData.friends"> {{ friend }},  </span>
+        <span *ngFor="let friend of data.friends"> {{ friend }},  </span>
       </p>
     </mdb-card-text>
   </mdb-card-body>

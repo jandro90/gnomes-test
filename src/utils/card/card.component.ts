@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { IInfoElement } from 'src/services/info-data.interface';
 
@@ -7,6 +7,11 @@ import { IInfoElement } from 'src/services/info-data.interface';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
   @Input() public cardData: IInfoElement;
+  public data;
+
+  ngOnInit() {
+    this.data = this.cardData;
+  }
 }
