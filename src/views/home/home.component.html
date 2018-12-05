@@ -1,3 +1,22 @@
-<p>
-  home works!
-</p>
+<app-spinner *ngIf="showLoader"></app-spinner>
+
+<div *ngIf="!showLoader && !showError">
+  <div class="container">
+    <app-search-bar (searchValueChanges)="onSearchValueChange($event)"></app-search-bar>
+  </div>
+
+  <cdk-virtual-scroll-viewport itemSize="100" class="container" style="height: 100vh;">
+    <div class="row">
+      <div *cdkVirtualFor="let element of dataFilter || data" class="col-12 col-sm-6 col-lg-4 space-content">
+        <app-card [cardData]="element"></app-card>
+      </div>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>
+
+<div *ngIf="!showLoader && showError">
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Oooooops Something has gone wrong!</h4>
+    <p>We have problems to establish a connection with the server, check your internet connection and if the problem persists try again after a few minutes.</p>
+  </div>
+</div>

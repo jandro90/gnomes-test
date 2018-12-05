@@ -1,0 +1,25 @@
+<mdb-card>
+  <div class="view rgba-white-slight waves-light card-height" mdbWavesEffect>
+    <mdb-card-img [src]="cardData.thumbnail" alt="Card image cap"></mdb-card-img>
+    <a>
+      <div class="mask"></div>
+    </a>
+  </div>
+
+  <mdb-card-body class="card-body-height">
+    <mdb-card-title>
+      <h4>{{cardData.name}}</h4>
+    </mdb-card-title>
+    <mdb-card-text>
+      <p> <strong>Height:</strong> {{cardData.height | number:'1.0-0'}} cm</p>
+      <p> <strong>Hair Color:</strong> {{cardData.hair_color }}</p>
+      <p> <strong>Age:</strong> {{cardData.age }}</p>
+      <p> <strong>Weight:</strong> {{cardData.weight | number:'1.0-0'}} kg</p>
+      <p *ngIf="cardData.friends.length > 0"> 
+        <strong>Friends:</strong>
+        <span *ngFor="let friend of cardData.friends"> {{ friend }},  </span>
+      </p>
+    </mdb-card-text>
+  </mdb-card-body>
+  
+</mdb-card>
