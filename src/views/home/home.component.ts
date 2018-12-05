@@ -23,10 +23,9 @@ export class HomeComponent {
       (res: IInfoData) => this.data = res.Brastlewark,
       (err) => this.showError = true
       ).add(() => setTimeout(() => {
-          this.showLoader = false;
+          this.showLoader = false; // added timeout because the data is received very quickly
       }, 2500));
   }
-
 
   public onSearchValueChange(value: string | null) {
     if (value) {
@@ -35,8 +34,4 @@ export class HomeComponent {
       this.dataFilter = null;
     }
   }
-
-
-
-
 }

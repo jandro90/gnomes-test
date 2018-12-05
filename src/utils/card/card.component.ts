@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import { IInfoElement } from 'src/services/info-data.interface';
 
 @Component({
@@ -8,7 +9,4 @@ import { IInfoElement } from 'src/services/info-data.interface';
 })
 export class CardComponent {
   @Input() public cardData: IInfoElement;
-
-  constructor() {}
-
 }

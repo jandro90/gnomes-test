@@ -14,12 +14,12 @@ export class SearchBarComponent {
     this.subscribeSearchValue();
   }
 
-   subscribeSearchValue() {
+  subscribeSearchValue() {
     this.searcInput.valueChanges.subscribe((value) => {
       value !== ''
       ? this.searchValueChanges.emit(value)
       : this.searchValueChanges.emit(null);
     });
-   }
+  }
 
 }
