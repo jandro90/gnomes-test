@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchBarComponent } from './search-bar.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('SearchBarComponent', () => {
@@ -25,5 +25,25 @@ describe('SearchBarComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should emit value when input value is changed', () => {
+    spyOn(component.searchValueChanges, 'emit');
+
+    component.searcInput = new FormControl('stubValue');
+    component.subscribeSearchValue();
+    component.searcInput.setValue('otherStubValue');
+
+    expect(component.searchValueChanges.emit).toHaveBeenCalledWith('otherStubValue');
+  });
+
+  it('should emit null when input value empty', () => {
+    spyOn(component.searchValueChanges, 'emit');
+
+    component.searcInput = new FormControl('stubValue');
+    component.subscribeSearchValue();
+    component.searcInput.setValue('');
+
+    expect(component.searchValueChanges.emit).toHaveBeenCalledWith(null);
   });
 });

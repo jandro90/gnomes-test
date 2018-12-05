@@ -7,7 +7,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent {
-  @Output() private searchValueChanges: EventEmitter<string> = new EventEmitter();
+  @Output() public searchValueChanges: EventEmitter<string> = new EventEmitter();
   public searcInput = new FormControl();
 
   constructor() {

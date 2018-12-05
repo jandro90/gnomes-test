@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
-import { InfoDataServiceService } from 'src/services/info-data-service.service';
+
 import { IInfoData, IInfoElement } from 'src/services/info-data.interface';
+import { InfoDataService } from 'src/services/info-data-service.service';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +15,11 @@ export class HomeComponent {
   public showLoader = true;
   public showError: boolean;
 
-  constructor(private userDataServie: InfoDataServiceService) {
+  constructor(public userDataServie: InfoDataService) {
     this.getData();
   }
 
-  private getData() {
+  public getData() {
     this.userDataServie.getData().subscribe(
       (res: IInfoData) => this.data = res.Brastlewark,
       (err) => this.showError = true

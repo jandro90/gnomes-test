@@ -7,9 +7,9 @@ import { IInfoData } from './info-data.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class InfoDataServiceService {
+export class InfoDataService {
   private dataURL = 'https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json';
-  private data: Observable<any>;
+  public data: Observable<any>;
 
   constructor(private http: HttpClient) {}
 
